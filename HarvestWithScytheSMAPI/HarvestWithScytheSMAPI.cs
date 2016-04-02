@@ -13,18 +13,14 @@ namespace HarvestWithScytheSMAPI
 {
     public class HarvestWithScytheSMAPI : Mod
     {
-
-        public static int CountOfCropsInCurrentArea { get; set; }
         public static int CountOfCropsReadyForHarvest { get; set; }
 
-        const int CATEGORY_SEEDS = -74;
         public override void Entry(params object[] objects)
         {
             ControlEvents.MouseChanged += Events_MouseActionOnHoeDirt;
             ControlEvents.ControllerButtonPressed += Events_ControllerAction;
             LocationEvents.CurrentLocationChanged += Events_OnAreaChange;
         }
-
 
 
         public static void AddExperience(int indexOfHarvest)
@@ -52,11 +48,11 @@ namespace HarvestWithScytheSMAPI
 
                 Game1.player.gainExperience(0, (int)Math.Round(timesByNumberHarvested));
                 Console.WriteLine((int)Math.Round(timesByNumberHarvested));
-                UpdateCountOfCurrentCrops();
+                UpdateCountOfCurrentCropsReadyForHarvest();
             }
         }
    
-        private static void UpdateCountOfCurrentCrops()
+        private static void UpdateCountOfCurrentCropsReadyForHarvest()
         {
             var terrFeats = Game1.currentLocation.terrainFeatures;
             if(terrFeats != null)
@@ -103,15 +99,6 @@ namespace HarvestWithScytheSMAPI
                     }
                 }
             }
-
-            // We take a count of all the crops when potentially planting a seed
-            if (currentItem is StardewValley.Object && currentItem.category == CATEGORY_SEEDS)
-            {
-                if (terrFeats != null)
-                {
-                    UpdateCountOfCurrentCrops();
-                }
-            }
         }
 
         static void Events_ControllerAction(object sender, EventArgsControllerButtonPressed e)
@@ -138,7 +125,8 @@ namespace HarvestWithScytheSMAPI
 
         static void Events_OnAreaChange(object sender, EventArgs e)
         {
-            UpdateCountOfCurrentCrops();
+            UpdateCountOfCurrentCropsReadyForHarvest();
+
             var terrFeats = Game1.currentLocation.terrainFeatures;
            
             if (terrFeats != null)
