@@ -1,0 +1,15 @@
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\HarvestWithScytheSMAPI.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\HarvestWithScytheSMAPI.pdb
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Microsoft.Xna.Framework.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Microsoft.Xna.Framework.Game.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Microsoft.Xna.Framework.Graphics.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Microsoft.Xna.Framework.Xact.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Newtonsoft.Json.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Stardew Valley.exe
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\xTile.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Lidgren.Network.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Steamworks.NET.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\bin\Debug\Newtonsoft.Json.xml
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\obj\Debug\HarvestWithScytheSMAPI.csprojResolveAssemblyReference.cache
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\obj\Debug\HarvestWithScytheSMAPI.dll
+c:\users\kiada\documents\visual studio 2015\Projects\SMAPI\HarvestWithScytheSMAPI\HarvestWithScytheSMAPI\obj\Debug\HarvestWithScytheSMAPI.pdb
