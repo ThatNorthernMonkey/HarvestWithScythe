@@ -13,7 +13,7 @@ namespace HarvestWithScytheSMAPI
 {
     public class HarvestWithScytheSMAPI : Mod
     {
-        public static int CountOfCropsReadyForHarvest { get; set; }
+        private static int CountOfCropsReadyForHarvest { get; set; }
 
         public override void Entry(params object[] objects)
         {
@@ -22,8 +22,51 @@ namespace HarvestWithScytheSMAPI
             LocationEvents.CurrentLocationChanged += Events_OnAreaChange;
         }
 
+        static void Events_ControllerAction(object sender, EventArgsControllerButtonPressed e)
+        {
+            if (Game1.hasLoadedGame)
+            {
+                HarvestCropsWithAScythe();
+            }
+        }
 
-        public static void AddExperience(int indexOfHarvest)
+        static void Events_MouseActionOnHoeDirt(object sender, EventArgs e)
+        {
+            if (Game1.hasLoadedGame)
+            {
+                HarvestCropsWithAScythe();
+            }
+        }
+
+        static void Events_OnAreaChange(object sender, EventArgs e)
+        {
+            UpdateCountOfCurrentCropsReadyForHarvest();
+
+            var terrFeats = Game1.currentLocation.terrainFeatures;
+
+            if (terrFeats != null)
+            {
+                List<HoeDirt> hoeDirts = new List<HoeDirt>();
+
+                foreach (var terr in terrFeats)
+                {
+                    if (terr.Value is HoeDirt)
+                    {
+                        hoeDirts.Add((HoeDirt)terr.Value);
+                    }
+                }
+
+                foreach (var dirt in hoeDirts)
+                {
+                    if (dirt.crop != null)
+                    {
+                        dirt.crop.harvestMethod = 1;
+                    }
+                }
+            }
+        }
+
+        private static void AddExperience(int indexOfHarvest)
         {
             var terrFeats = Game1.currentLocation.terrainFeatures;
 
@@ -68,7 +111,7 @@ namespace HarvestWithScytheSMAPI
             }
         }
 
-        static void HarvestCropsWithAScythe()
+        private static void HarvestCropsWithAScythe()
         {
             var terrFeats = Game1.currentLocation.terrainFeatures;
             var currentItem = Game1.player.Items[Game1.player.CurrentToolIndex];
@@ -101,54 +144,12 @@ namespace HarvestWithScytheSMAPI
             }
         }
 
-        static void Events_ControllerAction(object sender, EventArgsControllerButtonPressed e)
-        {
-            if (Game1.hasLoadedGame)
-            {
-                HarvestCropsWithAScythe();
-            }
-        }
-
-        static void Events_MouseActionOnHoeDirt(object sender, EventArgs e)
-        {
-            if( Game1.hasLoadedGame)
-            {
-                HarvestCropsWithAScythe();
-            }
-        }
-
         private static void CreateSunflowerSeeds(int index, int x, int y, int quantity)
         {
             //We always spawn just two seeds, boring. Can fix later.
             Game1.createMultipleObjectDebris(index, x, y, 2);
         }
 
-        static void Events_OnAreaChange(object sender, EventArgs e)
-        {
-            UpdateCountOfCurrentCropsReadyForHarvest();
 
-            var terrFeats = Game1.currentLocation.terrainFeatures;
-           
-            if (terrFeats != null)
-            {
-                List<HoeDirt> hoeDirts = new List<HoeDirt>();
-
-                foreach (var terr in terrFeats)
-                {
-                    if (terr.Value is HoeDirt)
-                    {
-                        hoeDirts.Add((HoeDirt)terr.Value);
-                    }
-                }
-
-                foreach (var dirt in hoeDirts)
-                {
-                    if (dirt.crop != null)
-                    {
-                        dirt.crop.harvestMethod = 1;
-                    }
-                }
-            }
-        }                
     }
 }
